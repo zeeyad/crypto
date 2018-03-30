@@ -1,2 +1,27 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<br/>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  	<tr>
+     <th scope="col" style="width: 3%;">Rank</th>
+     <th scope="col" style="width: 15%;">Name</th>
+     <th scope="col">Symbol</th>
+     <th scope="col">Price USD ( $ )</th>
+  	</tr>
+  </thead>
+  <tbody>
+    <% @coins.each do |coin| %>
+  	<tr>
+     <td><%= coin["rank"] %></td>
+     <td><%= coin["name"] %></td>
+	    <td><%= coin["symbol"] %></td>
+	    <td><%= coin["price_usd"] %></td>
+  	</tr>
+  	<% end %>
+  </tbody>
+
+
+
+</table>
