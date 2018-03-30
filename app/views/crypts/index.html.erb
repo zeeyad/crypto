@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Crypts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Cost per</th>
+      <th>Amount owned</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crypts.each do |crypt| %>
+      <% if crypt.user_id == current_user.id %>
+        <tr>
+          <td><%= crypt.symbol %></td>
+          <td><%= crypt.cost_per %></td>
+          <td><%= crypt.amount_owned %></td>
+          <td><%= link_to 'Show', crypt %></td>
+          <td><%= link_to 'Edit', edit_crypt_path(crypt) %></td>
+          <td><%= link_to 'Destroy', crypt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Crypt', new_crypt_path %>
